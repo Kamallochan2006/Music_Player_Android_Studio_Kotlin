@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="5dp"
+    tools:context=".MiniPlayer">
+
+    <LinearLayout
+        android:id="@+id/miniMusicPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/mini_player_tile_style"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/miniMusicIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/music"
+                android:layout_margin="5dp"
+                app:shapeAppearanceOverlay="@style/curved"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/miniSongName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="@string/choosesong"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/miniArtistName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="5dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginEnd="5dp">
+
+            <ImageButton
+                android:id="@+id/miniPreviousMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/prev"
+                android:src="@drawable/ic_previous"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/miniPlayPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/playpause"
+                android:src="@drawable/play_circle"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/miniNextMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/next"
+                android:src="@drawable/ic_next"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

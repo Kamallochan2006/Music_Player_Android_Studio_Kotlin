@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Music Player</string>
+    <string name="navigationBack">navigationBack</string>
+    <string name="songname">musicname</string>
+    <string name="artistname">artistname</string>
+    <string name="duration">00:00</string>
+    <string name="StartDuration">00:00</string>
+    <string name="EndDuration">00:00</string>
+    <string name="choosesong">Select Music</string>
+    <string name="playpause">PlayPause</string>
+    <string name="next">next</string>
+    <string name="prev">previus</string>
+</resources>
