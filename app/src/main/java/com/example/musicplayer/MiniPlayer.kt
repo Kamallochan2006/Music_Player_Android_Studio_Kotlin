@@ -1,5 +1,6 @@
 package com.example.musicplayer
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +14,11 @@ import com.example.musicplayer.MainActivity.Companion.musicList
 import com.example.musicplayer.PlayerActivity.Companion.songPosition
 import com.example.musicplayer.databinding.FragmentMiniPlayerBinding
 
+@Suppress("DEPRECATION")
 class MiniPlayer : Fragment() {
 
     companion object{
+        @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentMiniPlayerBinding
     }
 
@@ -76,7 +79,7 @@ class MiniPlayer : Fragment() {
         PlayerActivity.musicService!!.createMediaPlayer()
         Glide.with(this)
             .load(musicList[songPosition].albumArt)
-            .apply(RequestOptions().placeholder(R.drawable.music).centerCrop())
+            .apply(RequestOptions().placeholder(R.drawable.music_app_icon).centerCrop())
             .into(binding.miniMusicIcon)
         binding.miniSongName.text = musicList[songPosition].title
         binding.miniArtistName.text = musicList[songPosition].artist
@@ -88,7 +91,7 @@ class MiniPlayer : Fragment() {
         binding.miniSongName.isSelected = true
         Glide.with(this)
             .load(musicList[songPosition].albumArt)
-            .apply(RequestOptions().placeholder(R.drawable.music).centerCrop())
+            .apply(RequestOptions().placeholder(R.drawable.music_app_icon).centerCrop())
             .into(binding.miniMusicIcon)
         binding.miniSongName.text = musicList[songPosition].title
         binding.miniArtistName.text = musicList[songPosition].artist

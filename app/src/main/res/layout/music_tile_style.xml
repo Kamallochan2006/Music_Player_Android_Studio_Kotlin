@@ -11,7 +11,7 @@
         android:id="@+id/musicicon"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/music"
+        android:src="@drawable/music_app_icon"
         android:layout_margin="10dp"
         app:shapeAppearanceOverlay="@style/curved"/>
 

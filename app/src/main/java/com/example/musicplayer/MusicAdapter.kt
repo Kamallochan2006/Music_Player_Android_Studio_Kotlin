@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.musicplayer.databinding.MusicTileStyleBinding
 
+@Suppress("DEPRECATION")
 class MusicAdapter(private val context: Context, private val musicList: ArrayList<Music>): RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
     class MusicViewHolder(binding: MusicTileStyleBinding) : RecyclerView.ViewHolder(binding.root){
         val title = binding.musicname
@@ -29,7 +30,7 @@ class MusicAdapter(private val context: Context, private val musicList: ArrayLis
         holder.duration.text = musicList[position].duration
         Glide.with(context)
             .load(musicList[position].albumArt)
-            .apply(RequestOptions().placeholder(R.drawable.music).centerCrop())
+            .apply(RequestOptions().placeholder(R.drawable.music_app_icon).centerCrop())
             .into(holder.img)
         holder.root.setOnClickListener {
             val intent = Intent(context, PlayerActivity::class.java)

@@ -1,5 +1,6 @@
 package com.example.musicplayer
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
@@ -20,6 +21,7 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
     companion object{
         lateinit var musicList : ArrayList<Music>
         var songPosition: Int = 0
+        @SuppressLint("StaticFieldLeak")
         lateinit var binding: ActivityPlayerBinding
         var isPlaying: Boolean = false
         var musicService: MyService? = null
@@ -139,7 +141,7 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
         binding.songName.isSelected = true
         Glide.with(this)
             .load(musicList[songPosition].albumArt)
-            .apply(RequestOptions().placeholder(R.drawable.music).centerCrop())
+            .apply(RequestOptions().placeholder(R.drawable.music_app_icon).centerCrop())
             .into(binding.songIcon)
         binding.songName.text = musicList[songPosition].title
         binding.songArtist.text = musicList[songPosition].artist
