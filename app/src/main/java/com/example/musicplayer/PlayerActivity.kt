@@ -36,6 +36,13 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
 
         initMediaPlayer()
         initializeLayout()
+        val isDarkTheme = resources.configuration.uiMode and
+                android.content.res.Configuration.UI_MODE_NIGHT_MASK ==
+                android.content.res.Configuration.UI_MODE_NIGHT_YES
+
+        if (isDarkTheme) {
+            binding.backBtn.setColorFilter(resources.getColor(android.R.color.white, theme))
+        }
         binding.backBtn.setOnClickListener{
             finish()
         }

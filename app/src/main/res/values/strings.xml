@@ -10,4 +10,5 @@
     <string name="playpause">PlayPause</string>
     <string name="next">next</string>
     <string name="prev">previus</string>
+    <string name="no_music_found">No Music Found</string>
 </resources>

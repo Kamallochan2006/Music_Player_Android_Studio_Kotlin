@@ -1,12 +1,16 @@
 package com.example.musicplayer
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.media.MediaMetadataRetriever
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,9 +24,11 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var musicList: ArrayList<Music>
+        @SuppressLint("StaticFieldLeak")
         lateinit var binding: ActivityMainBinding
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestRuntimePermissions()
@@ -30,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initialize()
+        binding.swipeRefresh.setOnRefreshListener {
+            initialize()
+            binding.swipeRefresh.isRefreshing = false
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -38,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("Range")
     private fun getAllAudio(): ArrayList<Music> {
 
         val musicList = ArrayList<Music>()
@@ -72,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             }
             cursor.close()
         }
+
         return musicList
     }
 
@@ -100,7 +112,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialize() {
         musicList = getAllAudio()
-
+        binding.noMusicFound.visibility = View.GONE
+        if(musicList.isEmpty()){
+            binding.loading.visibility = View.GONE
+            binding.noMusicFound.visibility = View.VISIBLE
+        }
         binding.musicRV.setHasFixedSize(true)
         binding.musicRV.setItemViewCacheSize(13)
         binding.musicRV.layoutManager = LinearLayoutManager(this)
@@ -108,12 +124,14 @@ class MainActivity : AppCompatActivity() {
         binding.musicRV.adapter = musicAdapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun requestRuntimePermissions() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_MEDIA_AUDIO), 101)
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 

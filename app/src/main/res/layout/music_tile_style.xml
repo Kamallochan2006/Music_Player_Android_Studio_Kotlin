@@ -4,15 +4,16 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="5dp"
+    android:layout_margin="8dp"
     android:background="@drawable/music_tile_style"
     android:padding="2dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/musicicon"
+        android:id="@+id/musicIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/music_app_icon"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:shapeAppearanceOverlay="@style/curved"/>
 
     <TextView
@@ -21,13 +22,12 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="@string/songname"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="16sp"
         android:singleLine="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_toStartOf="@+id/duration"
-        android:layout_toEndOf="@+id/musicicon"
+        android:layout_toEndOf="@+id/musicIcon"
         android:layout_marginStart="5dp"
         android:gravity="center_vertical"/>
 
@@ -36,12 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="@string/artistname"
-        android:textColor="@color/black"
         android:singleLine="true"
         android:layout_toStartOf="@+id/duration"
-        android:layout_toEndOf="@+id/musicicon"
+        android:layout_toEndOf="@+id/musicIcon"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="38dp"/>
+        android:layout_marginTop="34dp"/>
 
     <TextView
         android:id="@+id/duration"
@@ -49,9 +48,8 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:text="@string/duration"
-        android:textColor="@color/black"
         android:singleLine="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"/>
+        android:layout_margin="5dp"/>
 
 </RelativeLayout>

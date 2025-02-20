@@ -3,6 +3,7 @@ package com.example.musicplayer
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,7 @@ class MusicAdapter(private val context: Context, private val musicList: ArrayLis
         val title = binding.musicname
         val artist = binding.artistname
         val duration = binding.duration
-        val img = binding.musicicon
+        val img = binding.musicIcon
         val root = binding.root
     }
 
@@ -25,6 +26,7 @@ class MusicAdapter(private val context: Context, private val musicList: ArrayLis
     }
 
     override fun onBindViewHolder(holder: MusicViewHolder, position: Int) {
+        MainActivity.binding.loading.visibility = View.GONE
         holder.title.text = musicList[position].title
         holder.artist.text = musicList[position].artist
         holder.duration.text = musicList[position].duration

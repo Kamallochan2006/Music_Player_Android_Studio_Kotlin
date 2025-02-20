@@ -21,15 +21,18 @@
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:contentDescription="@string/navigationBack"
             android:src="@drawable/ic_back"
-            android:layout_margin="10dp"/>
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/app_name"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_marginEnd="45dp"
             tools:ignore="NestedWeights" />
@@ -58,7 +61,6 @@
             android:text="@string/songname"
             android:singleLine="true"
             android:textSize="18sp"
-            android:textColor="@color/black"
             android:textAlignment="center"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"/>
@@ -70,7 +72,6 @@
             android:text="@string/artistname"
             android:singleLine="true"
             android:textSize="12sp"
-            android:textColor="@color/black"
             android:textAlignment="center"/>
     </LinearLayout>
 
@@ -102,7 +103,6 @@
             android:layout_gravity="start"
             android:layout_marginHorizontal="30dp"
             android:text="@string/StartDuration"
-            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -113,7 +113,6 @@
             android:layout_weight="1"
             android:gravity="end"
             android:text="@string/EndDuration"
-            android:textColor="@color/black"
             android:textSize="16sp" />
 
     </LinearLayout>
